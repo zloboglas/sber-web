@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<div>Таблица с товарами</div>
+<div>
+<table border="1">
+    <style>
+        table {
+            border: solid 1px black;
+            border-collapse: collapse;
+        }
+
+        td {
+            border: solid 1px black;
+        }
+    </style>
+    <tr>
+        <td>Article</td>
+        <td>Name</td>
+        <td>Shelf</td>
+        <td>Box</td>
+    </tr>
+    <tr>
+        <td>A001</td>
+        <td>Синтезатор</td>
+        <td>2</td>
+        <td>A</td>
+    </tr>
+    <tr>
+        <td>B001</td>
+        <td>Половицы</td>
+        <td>4</td>
+        <td>B</td>
+    </tr>
+    <tr>
+        <td>C001</td>
+        <td>Глобус мира</td>
+        <td>2</td>
+        <td>C</td>
+    </tr>
+    <tr>
+        <td>D001</td>
+        <td>Календарик офисный</td>
+        <td>1</td>
+        <td>D</td>
+    </tr>
+</table>
+</div>
+<div>
+    Формирование заказа
+</div>
+<div>
+    <form method="post">
+        <input type="text" name="article" placeholder="article"/>
+        <input type="text" name="name" placeholder="name"/>
+        <input type="number" name="amount" placeholder="amount"/>
+        <button name="action" type="submit" value="add">Добавить</button>
+        <div>
+            <button name="action" type="submit" value="clear">Сбросить</button>
+        </div>
+    </form>
+</div>
+
+<div>Заказ</div>
+<div>
+    <table>
+        <thead>
+        <tr>
+            <th> Article </th>
+            <th> Name </th>
+            <th> Amount </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="order : ${orders}">
+            <td><span th:text="${order.article}"> Article </span></td>
+            <td><span th:text="${order.name}"> Name </span></td>
+            <td><i th:number="${order.amount}"></i></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
