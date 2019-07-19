@@ -79,7 +79,7 @@
         <tr th:each="order : ${orders}">
             <td><span th:text="${order.article}"> Article </span></td>
             <td><span th:text="${order.name}"> Name </span></td>
-            <td><i th:number="${order.amount}"></i></td>
+            <td><span th:text="${order.amount}"></span></td>
         </tr>
         </tbody>
     </table>
